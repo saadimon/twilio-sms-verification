@@ -8,11 +8,11 @@ const client = require("twilio")(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("Hello World");
 });
 
-app.post("/verify-code", async (req, res) => {
+app.post("/api/verify-code", async (req, res) => {
   try {
     const { code, sid } = req.body;
     const verificationCheck = await client.verify.v2
@@ -27,7 +27,7 @@ app.post("/verify-code", async (req, res) => {
   }
 });
 
-app.post("/create-verification-code", async (req, res) => {
+app.post("/api/create-verification-code", async (req, res) => {
   try {
     const { phone, channel } = req.body;
 
