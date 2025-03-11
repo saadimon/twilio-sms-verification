@@ -14,3 +14,7 @@ npm-debug.log
 .env.production.local
 ./logs/*
 logs/
+
+*.log
+logs/
+logs/*
