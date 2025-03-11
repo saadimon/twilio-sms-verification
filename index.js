@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "./.env" });
+require('dotenv').config({path:__dirname+'/./../../.env'})
 
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
 
