@@ -2,6 +2,7 @@ const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const logger = require("./logger");
 const app = express();
 const client = require("twilio")(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
@@ -23,6 +24,7 @@ app.post("/api/verify-code", async (req, res) => {
       });
     return res.status(200).send(verificationCheck.status);
   } catch (e) {
+    logger.error(e);
     return res.status(500).send("Internal server error");
   }
 });
@@ -45,7 +47,7 @@ app.post("/api/create-verification-code", async (req, res) => {
       sid: verification.sid,
     });
   } catch (e) {
-    console.error(e);
+    logger.error(e);
     return res.status(500).send("Internal server error");
   }
 });
