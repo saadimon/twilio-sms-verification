@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "./.env" });
+
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID } = process.env;
 
 const express = require("express");
