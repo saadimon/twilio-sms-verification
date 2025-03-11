@@ -56,9 +56,4 @@ app.post("/api/create-verification-code", async (req, res) => {
 
 app.listen(3000 || process.env.port, () => {
   logger.info("Server is running on port 3000");
-  logger.info("Environment: ", {
-    TWILIO_ACCOUNT_SID,
-    TWILIO_AUTH_TOKEN,
-    VERIFICATION_SID,
-  });
 });
